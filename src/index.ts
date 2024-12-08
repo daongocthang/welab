@@ -1,6 +1,9 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import cors from 'cors';
 import express, { Express } from 'express';
-import boardRouter from './client/routes/board.routes';
+import apiRouter from './api/routes';
 import dbInit from './db';
 
 const app: Express = express();
@@ -18,6 +21,5 @@ app.listen(PORT, () => {
     console.log(`[server]: Server is running at http://localhost:${PORT}`);
 });
 
-app.use('/', boardRouter);
-
+app.use('/api', apiRouter);
 dbInit();
