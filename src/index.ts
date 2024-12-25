@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const PORT = 5000;
+const PORT = parseInt(process.env.NODE_PORT as string) || 5000;
 app.listen(PORT, () => {
     console.log(`[server]: Server is running at http://localhost:${PORT}`);
 });
